@@ -1,6 +1,7 @@
 package com.intellectual.auth.controller;
 
 import com.intellectual.auth.dto.Login;
+import com.intellectual.auth.dto.SignUp;
 import com.intellectual.auth.entity.Member;
 import com.intellectual.auth.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -17,11 +18,15 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping(value = "/login")
-    public ResponseEntity<String> login(@RequestBody Login login){
-
-    return ResponseEntity.ok(memberService.login(login));
+    @PostMapping(value = "/signup")
+    public ResponseEntity<Member> signUp(@RequestBody SignUp.Request request) {
+        Member member = memberService.signUp(request);
+        return ResponseEntity.ok(member);
     }
 
+    @PostMapping(value = "/login")
+    public ResponseEntity<String> login(@RequestBody Login login) {
 
+        return ResponseEntity.ok(memberService.login(login));
+    }
 }
