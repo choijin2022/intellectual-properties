@@ -21,10 +21,10 @@ public class SearchPatent {
     // Header
     private String totalCount;
 
-//    private String numOfRows;
-//    private String pageNo;
+    //    private String numOfRows;
+    //    private String pageNo;
 
-    //페이지정보
+    // 페이지정보
     private int page;
     private int itemsTotalCount;
     private int itemsInAPage;
@@ -32,7 +32,7 @@ public class SearchPatent {
     private int pageNo;
     private int numOfRows;
 
-    //특허정보
+    // 특허정보
     private String indexNo;
     private String inventionTitle;
     private String claimScope;

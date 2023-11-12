@@ -7,7 +7,7 @@ import jakarta.xml.bind.ValidationEventLocator;
 public class CustomEventHandler implements ValidationEventHandler {
     public boolean handleEvent(ValidationEvent event) {
         if (event.getSeverity() == ValidationEvent.FATAL_ERROR
-            || event.getSeverity() == ValidationEvent.ERROR) {
+                || event.getSeverity() == ValidationEvent.ERROR) {
             ValidationEventLocator locator = event.getLocator();
             String message = event.getMessage();
 
