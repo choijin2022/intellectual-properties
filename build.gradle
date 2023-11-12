@@ -29,6 +29,13 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.1' // XML 데이터 처리를 위한 의존성
+	implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.5' // XML 데이터 처리를 위한 의존성
+
+	implementation 'com.sun.xml.bind:jaxb-impl:4.0.1'
+	implementation 'com.sun.xml.bind:jaxb-core:4.0.1'
+	implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'// XML 데이터 처리를 위한 의존성
 }
 
 tasks.named('bootBuildImage') {
