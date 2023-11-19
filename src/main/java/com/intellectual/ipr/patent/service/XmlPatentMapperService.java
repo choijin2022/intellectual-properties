@@ -12,13 +12,10 @@ import org.w3c.dom.NodeList;
 
 @Service
 public class XmlPatentMapperService {
-
     public Document getXmlDocument(String requestUrl, int numOfRows, String searchString, int pageNo)
             throws Exception {
-
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-
         //        Document documentInfo = getXmlDocument(requestUrl,numOfRows,searchString,pageNo);
         Document documentInfo = dBuilder.parse(requestUrl);
         return documentInfo;

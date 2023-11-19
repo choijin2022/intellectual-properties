@@ -17,3 +17,7 @@ logging:
 my:
   service:
     key: ${SERVICE_KEY}
+
+kiprisplus:
+  service:
+    key: ${KIPRISPLUS_SERVICE_KEY}
