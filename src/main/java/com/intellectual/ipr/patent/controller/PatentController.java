@@ -18,7 +18,7 @@ import org.w3c.dom.Document;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/patent")
+@RequestMapping("/public/patent")
 public class PatentController {
 
     @Value("${my.service.key}")
@@ -76,10 +76,5 @@ public class PatentController {
             throw new RuntimeException();
         }
         return ResponseEntity.ok(response);
-    }
-
-    @GetMapping("/servicekey")
-    public String getSERVICE_KEY() {
-        return "Service Key: " + SERVICE_KEY;
     }
 }
