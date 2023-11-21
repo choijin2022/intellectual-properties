@@ -20,11 +20,11 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping(value = "/signup")
-    public ResponseEntity<Member> signUp(
+    public ResponseEntity<SignUp.Response> signUp(
             @RequestBody @AuthenticationPrincipal(expression = "#this == 'anonymousUser' ? null : member")
                     SignUp.Request request) {
         Member member = memberService.signUp(request);
-        return ResponseEntity.ok(member);
+        return ResponseEntity.ok(SignUp.Response.from(member));
     }
 
     @PostMapping(value = "/login")
