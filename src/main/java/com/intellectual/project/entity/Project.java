@@ -49,4 +49,14 @@ public class Project extends BaseEntity {
             timezone = "Asia/Seoul")
     @Column(columnDefinition = "DATETIME(0)")
     private LocalDateTime delDate;
+
+    public static Project from(Project project) {
+        return Project.builder()
+                .id(project.getId())
+                .name(project.getName())
+                .projectCode(project.getProjectCode())
+                .company(project.getCompany())
+                .memoBody(project.getMemoBody())
+                .build();
+    }
 }
