@@ -11,23 +11,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class SearchReject {
 
-    private int id;
-    private int memberId;
-    private int projectId;
-    private int subProjectId;
-    private String regDate;
-    private String updateDate;
-    private String totalCount;
-    private String searchString;
-
-    // 페이지정보
-    private int page;
-    private int itemsTotalCount;
-    private int itemsInAPage;
-    private int pagesCount;
-    private int pageNo;
-    private int numOfRows;
-
     // body / items / rejectDecisionInfo 정보
     private String items;
     private String rejectDecisionInfo;

@@ -32,27 +32,27 @@ public class SignUp {
         @Enumerated(EnumType.STRING)
         private Gender gender;
     }
+
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
     public static class Response {
 
-            private long id;
-            private String loginId;
-            private String name;
-            private String phoneNumber;
-            private Gender gender;
+        private long id;
+        private String loginId;
+        private String name;
+        private String phoneNumber;
+        private Gender gender;
 
-
-            public static SignUp.Response from(Member member) {
-                return Response.builder()
+        public static SignUp.Response from(Member member) {
+            return Response.builder()
                     .id(member.getId())
                     .loginId(member.getLoginId())
                     .name(member.getName())
                     .phoneNumber(member.getPhoneNumber())
                     .gender(member.getGender())
                     .build();
-            }
         }
+    }
 }

@@ -25,9 +25,9 @@ public class SecurityConfig {
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
 
         http.csrf(AbstractHttpConfigurer::disable)
-                .headers(headers -> headers.frameOptions(frameOptions -> headers.disable()))
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
+                .headers(headers -> headers.frameOptions(frameOptions -> headers.disable()))
                 .authorizeHttpRequests(
                         (authorizeRequests) ->
                                 authorizeRequests

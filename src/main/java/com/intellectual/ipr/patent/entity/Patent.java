@@ -19,11 +19,11 @@ import lombok.NoArgsConstructor;
 public class Patent extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    @Column private int memberId;
-    @Column private int projectId;
-    @Column private int subFolderId;
+    @Column private Long memberId;
+    @Column private Long projectId;
+    @Column private Long subFolderId;
 
     @Column(nullable = false)
     private String searchString;

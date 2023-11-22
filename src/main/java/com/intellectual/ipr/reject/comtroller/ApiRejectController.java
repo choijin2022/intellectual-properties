@@ -20,7 +20,7 @@ import org.w3c.dom.Document;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/public/reject")
-public class RejectController {
+public class ApiRejectController {
 
     @Value("${kiprisplus.service.key}")
     private String KIPRISPLUS_SERVICE_KEY;
