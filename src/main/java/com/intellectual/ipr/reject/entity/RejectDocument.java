@@ -1,12 +1,18 @@
 package com.intellectual.ipr.reject.entity;
 
+import com.intellectual.auth.entity.Member;
 import com.intellectual.global.entity.BaseEntity;
+import com.intellectual.ipr.reject.dto.StoreRejectDocument;
+import com.intellectual.project.entity.Project;
+import com.intellectual.subfolder.entity.SubFolder;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,9 +33,18 @@ public class RejectDocument extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column private Long memberId;
-    @Column private Long projectId;
-    @Column private Long subFolderId;
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
+    @ManyToOne
+    @JoinColumn(name = "subFolder_id")
+    private SubFolder subFolder;
+
     @Column private String totalCount;
     @Column private String searchString;
 
@@ -52,4 +67,28 @@ public class RejectDocument extends BaseEntity {
     @Column private String seq;
     @Column private String imageName;
     @Column private String imagePath;
+
+    public static RejectDocument from(Member member, StoreRejectDocument.Request request) {
+        return RejectDocument.builder()
+                .subFolder(request.getSubFolder())
+                .member(member)
+                .project(request.getSubFolder().getProject())
+                .items(request.getItems())
+                .rejectDecisionInfo(request.getRejectDecisionInfo())
+                .applicationNumber(request.getApplicationNumber())
+                .sendNumber(request.getSendNumber())
+                .lawContent(request.getLawContent())
+                .lawContentDetail(request.getLawContentDetail())
+                .lawContentNumber(request.getLawContentNumber())
+                .rejectionContentTitle(request.getRejectionContentTitle())
+                .rejectionContentDetail(request.getRejectionContentDetail())
+                .attachmentfileTitle(request.getAttachmentfileTitle())
+                .attachmentfileContent(request.getAttachmentfileContent())
+                .guidanceTitle(request.getGuidanceTitle())
+                .guidanceContent(request.getGuidanceContent())
+                .seq(request.getSeq())
+                .imageName(request.getImageName())
+                .imagePath(request.getImagePath())
+                .build();
+    }
 }
