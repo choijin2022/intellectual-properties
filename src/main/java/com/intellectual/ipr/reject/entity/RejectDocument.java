@@ -2,7 +2,6 @@ package com.intellectual.ipr.reject.entity;
 
 import com.intellectual.auth.entity.Member;
 import com.intellectual.global.entity.BaseEntity;
-import com.intellectual.ipr.reject.dto.StoreRejectDocument;
 import com.intellectual.project.entity.Project;
 import com.intellectual.subfolder.entity.SubFolder;
 import jakarta.persistence.Column;
@@ -17,10 +16,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Getter
+@Setter // Spring 기능 중 BeanUtils.copyProperties 메서드를 사용하기 위해 필요
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -67,28 +68,4 @@ public class RejectDocument extends BaseEntity {
     @Column private String seq;
     @Column private String imageName;
     @Column private String imagePath;
-
-    public static RejectDocument from(Member member, StoreRejectDocument.Request request) {
-        return RejectDocument.builder()
-                .subFolder(request.getSubFolder())
-                .member(member)
-                .project(request.getSubFolder().getProject())
-                .items(request.getItems())
-                .rejectDecisionInfo(request.getRejectDecisionInfo())
-                .applicationNumber(request.getApplicationNumber())
-                .sendNumber(request.getSendNumber())
-                .lawContent(request.getLawContent())
-                .lawContentDetail(request.getLawContentDetail())
-                .lawContentNumber(request.getLawContentNumber())
-                .rejectionContentTitle(request.getRejectionContentTitle())
-                .rejectionContentDetail(request.getRejectionContentDetail())
-                .attachmentfileTitle(request.getAttachmentfileTitle())
-                .attachmentfileContent(request.getAttachmentfileContent())
-                .guidanceTitle(request.getGuidanceTitle())
-                .guidanceContent(request.getGuidanceContent())
-                .seq(request.getSeq())
-                .imageName(request.getImageName())
-                .imagePath(request.getImagePath())
-                .build();
-    }
 }

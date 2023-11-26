@@ -16,6 +16,8 @@ public class StoreRejectDocument {
     @Builder
     public static class Request {
 
+        private Member member;
+
         private SubFolder subFolder;
 
         // body / items / rejectDecisionInfo 정보
@@ -38,6 +40,10 @@ public class StoreRejectDocument {
         private String seq;
         private String imageName;
         private String imagePath;
+
+        public void setMember(Member member) {
+            this.member = member;
+        }
     }
 
     @Getter
