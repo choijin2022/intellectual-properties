@@ -1,12 +1,14 @@
 package com.intellectual.ipr.reject.dto;
 
 import com.intellectual.auth.entity.Member;
+import com.intellectual.ipr.mapping.CustomMapper;
 import com.intellectual.ipr.reject.entity.RejectDocument;
 import com.intellectual.subfolder.entity.SubFolder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 public class StoreRejectDocument {
 
@@ -47,6 +49,7 @@ public class StoreRejectDocument {
     }
 
     @Getter
+    @Setter
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
@@ -84,35 +87,10 @@ public class StoreRejectDocument {
         private String imageName;
         private String imagePath;
 
-        public static Response from(Member member, RejectDocument rejectDocument) {
-            return StoreRejectDocument.Response.builder()
-                    .id(rejectDocument.getId())
-                    .subFolderId(rejectDocument.getSubFolder().getId())
-                    .memberId(member.getId())
-                    .projectId(rejectDocument.getSubFolder().getProject().getId())
-                    .projectName(rejectDocument.getSubFolder().getProject().getName())
-                    .projectCode(rejectDocument.getSubFolder().getProject().getProjectCode())
-                    .company(rejectDocument.getSubFolder().getProject().getCompany())
-                    .memoBody(rejectDocument.getSubFolder().getProject().getMemoBody())
-                    .subFolderId(rejectDocument.getSubFolder().getId())
-                    .subFolderName(rejectDocument.getSubFolder().getName())
-                    .items(rejectDocument.getItems())
-                    .rejectDecisionInfo(rejectDocument.getRejectDecisionInfo())
-                    .applicationNumber(rejectDocument.getApplicationNumber())
-                    .sendNumber(rejectDocument.getSendNumber())
-                    .lawContent(rejectDocument.getLawContent())
-                    .lawContentDetail(rejectDocument.getLawContentDetail())
-                    .lawContentNumber(rejectDocument.getLawContentNumber())
-                    .rejectionContentTitle(rejectDocument.getRejectionContentTitle())
-                    .rejectionContentDetail(rejectDocument.getRejectionContentDetail())
-                    .attachmentfileTitle(rejectDocument.getAttachmentfileTitle())
-                    .attachmentfileContent(rejectDocument.getAttachmentfileContent())
-                    .guidanceTitle(rejectDocument.getGuidanceTitle())
-                    .guidanceContent(rejectDocument.getGuidanceContent())
-                    .seq(rejectDocument.getSeq())
-                    .imageName(rejectDocument.getImageName())
-                    .imagePath(rejectDocument.getImagePath())
-                    .build();
+        public static CustomMapper customMapper = new CustomMapper();
+
+        public static Response of(RejectDocument rejectDocument) {
+            return customMapper.rejectMapper(rejectDocument);
         }
     }
 }

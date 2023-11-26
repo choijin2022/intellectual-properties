@@ -23,7 +23,6 @@ public class StoreRejectController {
     public ResponseEntity<StoreRejectDocument.Response> store(
             @CurrentUser Member member, @RequestBody StoreRejectDocument.Request request) {
         RejectDocument rejectDocument = storeRejectService.store(member, request);
-
-        return ResponseEntity.ok(StoreRejectDocument.Response.from(member, rejectDocument));
+        return ResponseEntity.ok(StoreRejectDocument.Response.of(rejectDocument));
     }
 }
