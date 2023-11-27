@@ -1,11 +1,15 @@
 package com.intellectual.ipr.patent.entity;
 
 import com.intellectual.global.entity.BaseEntity;
+import com.intellectual.project.entity.Project;
+import com.intellectual.subfolder.entity.SubFolder;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,9 +26,13 @@ public class Patent extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column private Long memberId;
-    @Column private Long projectId;
-    @Column private Long subFolderId;
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
+    @ManyToOne
+    @JoinColumn(name = "subFolder_id")
+    private SubFolder subFolder;
 
     @Column(nullable = false)
     private String searchString;

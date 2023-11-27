@@ -10,22 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class SearchPatent {
-    private int id;
-    private int memberId;
-    private int projectId;
-    private int subFolderId;
-    private String regDate;
-    private String updateDate;
 
     private String searchString;
     // Header
     private String totalCount;
-
-    //    private String numOfRows;
-    //    private String pageNo;
-
     // 페이지정보
-    private int page;
     private int itemsTotalCount;
     private int itemsInAPage;
     private int pagesCount;
@@ -35,32 +24,41 @@ public class SearchPatent {
     // 특허정보
     private String indexNo;
     private String inventionTitle;
-    private String claimScope;
     private String ipcNumber;
-    private String mIPC;
+
     private String astrtCont;
     private String applicationNumber;
     private String applicationDate;
     private String openNumber;
     private String openDate;
     private String publicationNumber;
-    private String registerNumber;
-    private String priorityApplicationNumber;
-    private String internationalApplicationNumber;
-    private String internationOpenNumber;
     private String publicationDate;
+    private String registerNumber;
+
     private String registerDate;
-    private String priorityApplicationDate;
-    private String internationalApplicationDate;
-    private String internationOpenDate;
-    private String applicant;
+
     private String applicantName;
-    private String inventors;
-    private String agent;
-    private String rightHoler;
-    private String utility;
-    private String lastvalue;
+
     private String registerStatus;
+
     private String bigDrawing;
+
     private String drawing;
+
+    public SearchPatent setSearchInfo(
+            String searchString,
+            String totalCount,
+            int itemsTotalCount,
+            int itemsInAPage,
+            int pageNo,
+            int numOfRows) {
+        this.searchString = searchString;
+        this.totalCount = totalCount;
+        this.itemsTotalCount = itemsTotalCount;
+        this.itemsInAPage = itemsInAPage;
+        this.pageNo = pageNo;
+        this.numOfRows = numOfRows;
+
+        return this;
+    }
 }

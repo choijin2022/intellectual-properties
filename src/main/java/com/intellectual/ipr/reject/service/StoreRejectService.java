@@ -23,8 +23,6 @@ public class StoreRejectService {
 
         RejectDocument rejectDocument = mapToRejectDocument(request);
         return rejectRepository.save(rejectDocument);
-
-        //        return rejectRepository.save(RejectDocument.from(member, request));
     }
 
     public static RejectDocument mapToRejectDocument(StoreRejectDocument.Request request) {
