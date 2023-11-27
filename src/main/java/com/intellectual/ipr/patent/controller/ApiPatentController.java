@@ -19,12 +19,12 @@ import org.w3c.dom.Document;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/public/patent")
-public class PatentController {
+public class ApiPatentController {
 
     @Value("${my.service.key}")
     private String SERVICE_KEY;
 
-    private static final Logger logger = LoggerFactory.getLogger(PatentController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApiPatentController.class);
     private final XmlPatentMapperService xmlPatentMapperService;
 
     private final PdfPatentService pdfPatentService;

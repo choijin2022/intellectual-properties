@@ -47,6 +47,9 @@ dependencies {
 
 	implementation 'org.modelmapper:modelmapper:3.0.0' // 객체간 매핑
 
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final' // mapStruct
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final' // mapStruct
+
 }
 
 tasks.named('bootBuildImage') {

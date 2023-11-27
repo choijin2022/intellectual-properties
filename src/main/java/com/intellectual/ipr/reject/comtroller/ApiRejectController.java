@@ -1,6 +1,6 @@
 package com.intellectual.ipr.reject.comtroller;
 
-import com.intellectual.ipr.patent.controller.PatentController;
+import com.intellectual.ipr.patent.controller.ApiPatentController;
 import com.intellectual.ipr.reject.dto.SearchImageInfo;
 import com.intellectual.ipr.reject.dto.SearchReject;
 import com.intellectual.ipr.reject.service.XmlImageRejectMapperService;
@@ -25,7 +25,7 @@ public class ApiRejectController {
     @Value("${kiprisplus.service.key}")
     private String KIPRISPLUS_SERVICE_KEY;
 
-    private static final Logger logger = LoggerFactory.getLogger(PatentController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApiPatentController.class);
     private final XmlRejectMapperService xmlRejectMapperService;
     private final XmlImageRejectMapperService xmlImageRejectMapperService;
 

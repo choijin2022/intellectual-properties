@@ -9,9 +9,8 @@ import org.modelmapper.PropertyMap;
 public class CustomMapper {
     public StoreRejectDocument.Response rejectMapper(RejectDocument rejectDocument) {
         ModelMapper modelMapper = new ModelMapper();
-        // RejectDocument 클래스와 StoreRejectDocument.Response 클래스 간의 매핑 규칙 설정
 
-        // Converter를 사용하여 age 필드 매핑 규칙 설정
+        // Converter를 사용하여 memberId, projectId, company,memoBody 필드 매핑 규칙 설정
         Converter<RejectDocument, Long> memberConverter =
                 ctx -> {
                     RejectDocument source = ctx.getSource();
