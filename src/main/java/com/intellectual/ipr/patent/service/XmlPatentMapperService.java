@@ -25,8 +25,6 @@ public class XmlPatentMapperService {
         return documentInfo;
     }
 
-
-
     public List<SearchPatent> getPatents(
             Document documentInfo, int numOfRows, String searchString, int pageNo) {
         List<SearchPatent> patents = new ArrayList<>();
@@ -48,7 +46,6 @@ public class XmlPatentMapperService {
                                 + "\"";
                 // 2.jsonArr에  jsonInput 값을  넣기
                 jsonArr[j] = jsonInput;
-
             }
             // 쌍따옴표가 두번반복된 것을 하나의 쌍따옴표로 변환, 값이 비어있는 경우에 대하여 다시 쌍따옴표가 연속으로 존재하도록 변환
             String jsonArrayString =

@@ -1,5 +1,6 @@
 package com.intellectual.global.config;
 
+import com.intellectual.ipr.mapping.PatentMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,5 +17,10 @@ public class AppConfig {
                 .setFieldMatchingEnabled(true);
 
         return modelMapper;
+    }
+
+    @Bean
+    public PatentMapper patentMapper() {
+        return PatentMapper.INSTANCE;
     }
 }

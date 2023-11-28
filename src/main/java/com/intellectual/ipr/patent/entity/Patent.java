@@ -1,6 +1,8 @@
 package com.intellectual.ipr.patent.entity;
 
+import com.intellectual.auth.entity.Member;
 import com.intellectual.global.entity.BaseEntity;
+import com.intellectual.ipr.patent.dto.StorePatentDocument;
 import com.intellectual.project.entity.Project;
 import com.intellectual.subfolder.entity.SubFolder;
 import jakarta.persistence.Column;
@@ -27,6 +29,10 @@ public class Patent extends BaseEntity {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
 
@@ -40,10 +46,7 @@ public class Patent extends BaseEntity {
     // Header
     @Column private String totalCount;
 
-    @Column
     // 페이지정보
-    private int page;
-
     @Column private int itemsTotalCount;
     @Column private int itemsInAPage;
     @Column private int pagesCount;
@@ -67,4 +70,9 @@ public class Patent extends BaseEntity {
     @Column private String ipcNumber;
     @Column private String drawing;
     @Column private String bigDrawing;
+
+    public void setOf(Member member, StorePatentDocument.Request request) {
+        this.project = request.getSubFolder().getProject();
+        this.member = member;
+    }
 }
