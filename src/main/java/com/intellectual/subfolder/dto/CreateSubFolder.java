@@ -14,7 +14,6 @@ public class CreateSubFolder {
     public static class Response {
         private Long id;
         private Long projectId;
-        private Long memberId;
         private String name;
         private int delStatus;
 
@@ -22,7 +21,6 @@ public class CreateSubFolder {
             return Response.builder()
                     .id(subFolder.getId())
                     .projectId(subFolder.getProject().getId())
-                    .memberId(subFolder.getMember().getId())
                     .name(subFolder.getName())
                     .build();
         }

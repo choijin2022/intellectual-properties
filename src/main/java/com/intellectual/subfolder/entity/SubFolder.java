@@ -1,8 +1,8 @@
 package com.intellectual.subfolder.entity;
 
-import com.intellectual.auth.entity.Member;
 import com.intellectual.global.entity.BaseEntity;
 import com.intellectual.project.entity.Project;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
@@ -28,13 +28,9 @@ public class SubFolder extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "project_id")
     private Project project;
-
-    @ManyToOne
-    @JoinColumn(name = "member_id")
-    private Member member;
 
     @Column private String name;
     @Column private int delStatus;

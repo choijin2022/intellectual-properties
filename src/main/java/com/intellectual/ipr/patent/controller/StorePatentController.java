@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class StorePatentController {
     private final StorePatentService storePatentService;
 
-
     @PostMapping(value = "/store")
     public ResponseEntity<StorePatentDocument.Response> store(
             @CurrentUser Member member, @RequestBody StorePatentDocument.Request request) {

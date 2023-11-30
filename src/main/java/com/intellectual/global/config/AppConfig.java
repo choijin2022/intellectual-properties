@@ -1,6 +1,6 @@
 package com.intellectual.global.config;
 
-import com.intellectual.ipr.mapping.PatentMapper;
+import com.intellectual.ipr.mapping.StructMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class AppConfig {
     }
 
     @Bean
-    public PatentMapper patentMapper() {
-        return PatentMapper.INSTANCE;
+    public StructMapper patentMapper() {
+        return StructMapper.INSTANCE;
     }
 }

@@ -15,11 +15,6 @@ public class SubFolderService {
     public SubFolder create(Project project) {
 
         return subFolderRepository.save(
-                SubFolder.builder()
-                        .name("새폴더")
-                        .member(project.getMember())
-                        .project(project)
-                        .delStatus(project.getDelStatus())
-                        .build());
+                SubFolder.builder().name("새폴더").project(project).delStatus(project.getDelStatus()).build());
     }
 }

@@ -3,6 +3,7 @@ package com.intellectual.project.controller;
 import com.intellectual.auth.entity.Member;
 import com.intellectual.global.annotation.CurrentUser;
 import com.intellectual.project.dto.Create;
+import com.intellectual.project.dto.ProjectDto;
 import com.intellectual.project.entity.Project;
 import com.intellectual.project.service.ProjectService;
 import com.intellectual.subfolder.entity.SubFolder;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -35,5 +37,16 @@ public class ProjectController {
         Create.Response response = Create.Response.from(project, subfolder);
 
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping(value = "/update")
+    public ResponseEntity<ProjectDto> update(
+            @CurrentUser Member member, @RequestBody ProjectDto request) {
+        return ResponseEntity.ok(projectService.update(member, request));
+    }
+
+    @PostMapping(value = "/delete")
+    public void delete(@CurrentUser Member member, @RequestParam long id) {
+        projectService.delete(member, id);
     }
 }

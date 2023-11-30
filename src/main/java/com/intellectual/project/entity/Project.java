@@ -40,7 +40,6 @@ public class Project extends BaseEntity {
     @Column private String projectCode;
     @Column private String company;
     @Column private String memoBody;
-
     @Column private int delStatus;
 
     @JsonFormat(
@@ -58,5 +57,13 @@ public class Project extends BaseEntity {
                 .company(project.getCompany())
                 .memoBody(project.getMemoBody())
                 .build();
+    }
+
+    public void setOf(Member member) {
+        this.member = member;
+    }
+
+    public Project(Member member) {
+        super();
     }
 }

@@ -12,7 +12,9 @@ public enum ErrorCode {
     INTERNAL_SERVER_ERROR("알 수 없는 에러입니다.", HttpStatus.INTERNAL_SERVER_ERROR),
     ALREADY_SIGNUP("이미 가입된 회원입니다.", HttpStatus.BAD_REQUEST),
     NOT_EXIST_MEMBER("존재하지 않는 회원 입니다.", HttpStatus.NOT_FOUND),
-    FAILED_LOGIN("아이디 또는 비밀번호가 잘못되었습니다", HttpStatus.BAD_REQUEST);
+    FAILED_LOGIN("아이디 또는 비밀번호가 잘못되었습니다", HttpStatus.BAD_REQUEST),
+    NOT_EXIST_PROJECT("해당 프로젝트가 없습니다", HttpStatus.NOT_FOUND),
+    DO_NOT_HAVE_ACCESS("접근 권한이 없습니다", HttpStatus.BAD_REQUEST);
     private final String message;
     private final HttpStatus status;
 }

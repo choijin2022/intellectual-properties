@@ -29,15 +29,15 @@ public class Patent extends BaseEntity {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 
     @ManyToOne
-    @JoinColumn(name = "project_id")
+    @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
     @ManyToOne
-    @JoinColumn(name = "subFolder_id")
+    @JoinColumn(name = "subFolder_id", nullable = false)
     private SubFolder subFolder;
 
     @Column(nullable = false)

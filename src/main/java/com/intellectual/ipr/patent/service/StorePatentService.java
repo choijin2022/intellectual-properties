@@ -1,7 +1,7 @@
 package com.intellectual.ipr.patent.service;
 
 import com.intellectual.auth.entity.Member;
-import com.intellectual.ipr.mapping.PatentMapper;
+import com.intellectual.ipr.mapping.StructMapper;
 import com.intellectual.ipr.patent.dto.StorePatentDocument;
 import com.intellectual.ipr.patent.dto.StorePatentDocument.Request;
 import com.intellectual.ipr.patent.entity.Patent;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class StorePatentService {
 
-    private final PatentMapper patentMapper;
+    private final StructMapper structMapper;
 
     private final PatentRepository patentRepository;
 
@@ -26,6 +26,6 @@ public class StorePatentService {
     }
 
     public Patent mapToPatent(StorePatentDocument.Request request) {
-        return patentMapper.toPatent(request);
+        return structMapper.toPatent(request);
     }
 }
